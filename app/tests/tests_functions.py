@@ -34,3 +34,13 @@ class FunctionsTest(TestCase):
                 print("Path [%s] have to ends with [%s], version [%s->%s]\n" % (path2, ends, version, version2))
                 self.assertTrue(path2.endswith(ends),
                                 "Path [%s] is not ends with [%s]" % (path2, ends,))
+
+            ends = "/rss.gif"
+            orig_path = get_version_path(path, None)
+            print("Path [%s] have to ends with [%s], version [%s->]\n" % (orig_path, ends, version))
+            self.assertTrue(orig_path.endswith(ends),
+                            "Path [%s] is not ends with [%s]" % (path2, ends,))
+            orig_path = get_version_path(path)
+            print("Path [%s] have to ends with [%s], version [%s->]\n" % (orig_path, ends, version))
+            self.assertTrue(orig_path.endswith(ends),
+                            "Path [%s] is not ends with [%s]" % (path2, ends,))
