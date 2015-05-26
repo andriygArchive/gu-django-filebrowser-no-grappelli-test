@@ -22,20 +22,20 @@ class FunctionsTest(TestCase):
 
         for version in settings.FILEBROWSER_VERSIONS:
             path = get_version_path("2/rss.gif", version)
-            ends = "/rss_" + version + ".gif"
+            ends = "rss_" + version + ".gif"
             print("Path [%s] have to ends with [%s], version [%s]\n" % (path, ends, version))
             self.assertTrue(path.endswith(ends),
                             "Path [%s] is not ends with [%s]" % (path, ends,))
 
             for version2 in settings.FILEBROWSER_VERSIONS:
                 path2 = get_version_path(path, version2)
-                ends = "/rss_" + version2 + ".gif"
+                ends = "rss_" + version2 + ".gif"
 
                 print("Path [%s] have to ends with [%s], version [%s->%s]\n" % (path2, ends, version, version2))
                 self.assertTrue(path2.endswith(ends),
                                 "Path [%s] is not ends with [%s]" % (path2, ends,))
 
-            ends = "/rss.gif"
+            ends = "rss.gif"
             orig_path = get_version_path(path, None)
             print("Path [%s] have to ends with [%s], version [%s->]\n" % (orig_path, ends, version))
             self.assertTrue(orig_path.endswith(ends),
